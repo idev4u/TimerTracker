@@ -13,9 +13,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnStart;
 @property (weak, nonatomic) IBOutlet UIButton *btnStop;
 
+
 @end
 
-@implementation TimerStartVC
+@implementation TimerStartVC{
+    NSString *timerDisplayText;
+}
 
 
 - (void)viewDidLoad {
@@ -32,11 +35,30 @@
 }
 
 - (IBAction)start:(UIButton *)sender {
-    self.timerDisplay.text = @"start";
+    
+    NSDateFormatter *formatter;
+    NSString        *dateString;
+    
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd.MM.yyyy HH:mm"];
+    
+    dateString = [formatter stringFromDate:[NSDate date]];
+    timerDisplayText = _timerDisplay.text;
+    NSLog(@"this is the Labeltext: %@", timerDisplayText);
+    NSMutableString *timerActiveMessage = [[NSMutableString alloc] init];
+    [timerActiveMessage appendString:@"Time is tracking since: \n"];
+    [timerActiveMessage appendString:dateString];
+    NSLog(@" %@",timerActiveMessage);
+    _timerDisplay.lineBreakMode = NSLineBreakByWordWrapping;
+    _timerDisplay.numberOfLines = 0;
+//    _timerDisplay.numberOfLines = 1;
+    _timerDisplay.text = timerActiveMessage;
     
 }
 - (IBAction)stop:(UIButton *)sender {
-    self.timerDisplay.text = @"stop";
+    NSLog(@"this is the Labeltext: %@",timerDisplayText);
+    
+    _timerDisplay.text = timerDisplayText;
 }
 /*
 #pragma mark - Navigation
@@ -55,4 +77,6 @@
     sender.layer.borderColor=[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor;
     sender.layer.borderWidth=1.0f;
 }
+
+
 @end

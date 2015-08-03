@@ -16,6 +16,7 @@
 		477209071B6FE553007279F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477209051B6FE553007279F8 /* LaunchScreen.storyboard */; };
 		477209121B6FE553007279F8 /* TimeTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 477209111B6FE553007279F8 /* TimeTrackerTests.m */; };
 		4772091D1B6FE553007279F8 /* TimeTrackerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4772091C1B6FE553007279F8 /* TimeTrackerUITests.m */; };
+		4772092C1B6FE7E2007279F8 /* TimerStartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4772092B1B6FE7E2007279F8 /* TimerStartVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		477209181B6FE553007279F8 /* TimeTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4772091C1B6FE553007279F8 /* TimeTrackerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeTrackerUITests.m; sourceTree = "<group>"; };
 		4772091E1B6FE553007279F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4772092A1B6FE7E2007279F8 /* TimerStartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerStartVC.h; sourceTree = "<group>"; };
+		4772092B1B6FE7E2007279F8 /* TimerStartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerStartVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,7 @@
 				477208F81B6FE553007279F8 /* AppDelegate.m */,
 				477208FA1B6FE553007279F8 /* ViewController.h */,
 				477208FB1B6FE553007279F8 /* ViewController.m */,
+				4772092D1B6FE805007279F8 /* StartView */,
 				477208FD1B6FE553007279F8 /* Main.storyboard */,
 				477209031B6FE553007279F8 /* Assets.xcassets */,
 				477209051B6FE553007279F8 /* LaunchScreen.storyboard */,
@@ -141,6 +145,16 @@
 				4772091E1B6FE553007279F8 /* Info.plist */,
 			);
 			path = TimeTrackerUITests;
+			sourceTree = "<group>";
+		};
+		4772092D1B6FE805007279F8 /* StartView */ = {
+			isa = PBXGroup;
+			children = (
+				4772092A1B6FE7E2007279F8 /* TimerStartVC.h */,
+				4772092B1B6FE7E2007279F8 /* TimerStartVC.m */,
+			);
+			name = StartView;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +224,7 @@
 				TargetAttributes = {
 					477208F01B6FE553007279F8 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = YPAQTQ6HDQ;
 					};
 					4772090C1B6FE553007279F8 = {
 						CreatedOnToolsVersion = 7.0;
@@ -273,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4772092C1B6FE7E2007279F8 /* TimerStartVC.m in Sources */,
 				477208FC1B6FE553007279F8 /* ViewController.m in Sources */,
 				477208F91B6FE553007279F8 /* AppDelegate.m in Sources */,
 				477208F61B6FE553007279F8 /* main.m in Sources */,
@@ -415,7 +431,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TimeTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sutorius.de.tt.TimeTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -426,7 +444,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TimeTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sutorius.de.tt.TimeTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";

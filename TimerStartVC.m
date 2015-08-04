@@ -46,11 +46,15 @@
     timerDisplayText = _timerDisplay.text;
     NSLog(@"this is the Labeltext: %@", timerDisplayText);
     NSMutableString *timerActiveMessage = [[NSMutableString alloc] init];
-    [timerActiveMessage appendString:@"Time is tracking since: \n"];
+    [timerActiveMessage appendString:@"Time is tracking since: "];
     [timerActiveMessage appendString:dateString];
     NSLog(@" %@",timerActiveMessage);
-    _timerDisplay.lineBreakMode = NSLineBreakByWordWrapping;
+//    _timerDisplay.lineBreakMode = NSLineBreakByWordWrapping;
     _timerDisplay.numberOfLines = 0;
+//    _timerDisplay.preferredMaxLayoutWidth = timerActiveMessage.length;
+   
+    _timerDisplay.lineBreakMode = NSLineBreakByWordWrapping;
+    
 //    _timerDisplay.numberOfLines = 1;
     _timerDisplay.text = timerActiveMessage;
     

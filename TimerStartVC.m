@@ -7,6 +7,7 @@
 //
 
 #import "TimerStartVC.h"
+#import "TimeLapse.h"
 
 @interface TimerStartVC ()
 @property (weak, nonatomic) IBOutlet UILabel *timerDisplay;
@@ -18,6 +19,7 @@
 
 @implementation TimerStartVC{
     NSString *timerDisplayText;
+    
 }
 
 
@@ -49,20 +51,19 @@
     [timerActiveMessage appendString:@"Time is tracking since: "];
     [timerActiveMessage appendString:dateString];
     NSLog(@" %@",timerActiveMessage);
-//    _timerDisplay.lineBreakMode = NSLineBreakByWordWrapping;
+    
     _timerDisplay.numberOfLines = 0;
-//    _timerDisplay.preferredMaxLayoutWidth = timerActiveMessage.length;
-   
     _timerDisplay.lineBreakMode = NSLineBreakByWordWrapping;
     
-//    _timerDisplay.numberOfLines = 1;
     _timerDisplay.text = timerActiveMessage;
     
 }
 - (IBAction)stop:(UIButton *)sender {
     NSLog(@"this is the Labeltext: %@",timerDisplayText);
+    if ([timerDisplayText length]!= 0) {
+        _timerDisplay.text = timerDisplayText;    
+    }
     
-    _timerDisplay.text = timerDisplayText;
 }
 /*
 #pragma mark - Navigation

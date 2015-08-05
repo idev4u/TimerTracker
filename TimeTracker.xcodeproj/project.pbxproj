@@ -17,6 +17,7 @@
 		477209121B6FE553007279F8 /* TimeTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 477209111B6FE553007279F8 /* TimeTrackerTests.m */; };
 		4772091D1B6FE553007279F8 /* TimeTrackerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4772091C1B6FE553007279F8 /* TimeTrackerUITests.m */; };
 		4772092C1B6FE7E2007279F8 /* TimerStartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4772092B1B6FE7E2007279F8 /* TimerStartVC.m */; };
+		47F5B7521B729C4900DD76B7 /* TimeLapse.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F5B7511B729C4900DD76B7 /* TimeLapse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,9 @@
 		4772091E1B6FE553007279F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4772092A1B6FE7E2007279F8 /* TimerStartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerStartVC.h; sourceTree = "<group>"; };
 		4772092B1B6FE7E2007279F8 /* TimerStartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerStartVC.m; sourceTree = "<group>"; };
+		47F5B74F1B729C4900DD76B7 /* TimeLapse+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeLapse+CoreDataProperties.h"; sourceTree = "<group>"; };
+		47F5B7501B729C4900DD76B7 /* TimeLapse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLapse.h; sourceTree = "<group>"; };
+		47F5B7511B729C4900DD76B7 /* TimeLapse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLapse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,9 @@
 				477209051B6FE553007279F8 /* LaunchScreen.storyboard */,
 				477209081B6FE553007279F8 /* Info.plist */,
 				477209001B6FE553007279F8 /* TimeTracker.xcdatamodeld */,
+				47F5B74F1B729C4900DD76B7 /* TimeLapse+CoreDataProperties.h */,
+				47F5B7501B729C4900DD76B7 /* TimeLapse.h */,
+				47F5B7511B729C4900DD76B7 /* TimeLapse.m */,
 				477208F41B6FE553007279F8 /* Supporting Files */,
 			);
 			path = TimeTracker;
@@ -292,6 +299,7 @@
 				477208FC1B6FE553007279F8 /* ViewController.m in Sources */,
 				477208F91B6FE553007279F8 /* AppDelegate.m in Sources */,
 				477208F61B6FE553007279F8 /* main.m in Sources */,
+				47F5B7521B729C4900DD76B7 /* TimeLapse.m in Sources */,
 				477209021B6FE553007279F8 /* TimeTracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,6 +528,7 @@
 				477209231B6FE553007279F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		477209241B6FE553007279F8 /* Build configuration list for PBXNativeTarget "TimeTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +537,7 @@
 				477209261B6FE553007279F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		477209271B6FE553007279F8 /* Build configuration list for PBXNativeTarget "TimeTrackerUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +546,7 @@
 				477209291B6FE553007279F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

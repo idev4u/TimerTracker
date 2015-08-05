@@ -8,6 +8,7 @@
 
 #import "TimerStartVC.h"
 #import "TimeLapse.h"
+#import "AppDelegate.h"
 
 @interface TimerStartVC ()
 @property (weak, nonatomic) IBOutlet UILabel *timerDisplay;
@@ -38,30 +39,55 @@
 
 - (IBAction)start:(UIButton *)sender {
     
-    NSDateFormatter *formatter;
-    NSString        *dateString;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
     
-    formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd.MM.yyyy HH:mm"];
-    
-    dateString = [formatter stringFromDate:[NSDate date]];
-    timerDisplayText = _timerDisplay.text;
-    NSLog(@"this is the Labeltext: %@", timerDisplayText);
-    NSMutableString *timerActiveMessage = [[NSMutableString alloc] init];
-    [timerActiveMessage appendString:@"Time is tracking since: "];
-    [timerActiveMessage appendString:dateString];
-    NSLog(@" %@",timerActiveMessage);
+    TimeLapse *timeLapse = [NSEntityDescription insertNewObjectForEntityForName:@"TimeLapse" inManagedObjectContext:managedObjectContext];
+    if(timeLapse != nil){
+        timeLapse.recordDay = [[NSDate alloc] init]; //now
+        timeLapse.recordState = @"time is tracking";
+        timeLapse.startTimestamp = [[NSDate alloc] init];
+        NSError *persitError = nil;
+        
+        if ([managedObjectContext save:&persitError]) {
+            NSLog(@"persitentsSucces");
+        }else{
+            NSLog(@"persitentsError: %@", persitError);
+        }
+    } else {
+        NSLog(@"persitentsError: No TimeLapse Object was created.");
+    }
     
     _timerDisplay.numberOfLines = 0;
     _timerDisplay.lineBreakMode = NSLineBreakByWordWrapping;
     
-    _timerDisplay.text = timerActiveMessage;
+    _timerDisplay.text = [self statusTextAtTimeLapseRunning];
     
 }
 - (IBAction)stop:(UIButton *)sender {
+    // Fetch from CoreData
+    NSFetchRequest *timeFetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"TimeLapse"];
+    NSError *fetchError = nil;
+    
+    //global ?
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+    NSArray *allTimeLapse = [managedObjectContext executeFetchRequest:timeFetchRequest error:&fetchError];
+    if ([allTimeLapse count] > 0){
+        NSUInteger counter = 0;
+        for (TimeLapse *timeLapseItem in allTimeLapse) {
+            NSLog(@"timelapse Obejct: %lu = %@, %@",counter, timeLapseItem.startTimestamp, timeLapseItem.recordState);
+            counter++;
+        }
+    }else{
+        NSLog(@"There are no TimeLapse Items");
+    }
+    
+    
+    //---end
     NSLog(@"this is the Labeltext: %@",timerDisplayText);
     if ([timerDisplayText length]!= 0) {
-        _timerDisplay.text = timerDisplayText;    
+        _timerDisplay.text = timerDisplayText;
     }
     
 }
@@ -83,5 +109,21 @@
     sender.layer.borderWidth=1.0f;
 }
 
+- (NSString*)statusTextAtTimeLapseRunning{
+    NSDateFormatter *formatter;
+    NSString        *dateString;
+    
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd.MM.yyyy HH:mm"];
+    
+    dateString = [formatter stringFromDate:[NSDate date]];
+    timerDisplayText = _timerDisplay.text;
+    NSLog(@"this is the Labeltext: %@", timerDisplayText);
+    NSMutableString *timerActiveMessage = [[NSMutableString alloc] init];
+    [timerActiveMessage appendString:@"Time is tracking since: "];
+    [timerActiveMessage appendString:dateString];
+    NSLog(@" %@",timerActiveMessage);
+    return timerActiveMessage;
+}
 
 @end

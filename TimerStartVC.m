@@ -44,7 +44,7 @@
     
     TimeLapse *timeLapse = [NSEntityDescription insertNewObjectForEntityForName:@"TimeLapse" inManagedObjectContext:managedObjectContext];
     if(timeLapse != nil){
-        timeLapse.recordDay = [[NSDate alloc] init]; //now
+//        timeLapse.recordDay = [[NSDate alloc] init]; //now
         timeLapse.recordState = @"time is tracking";
         timeLapse.startTimestamp = [[NSDate alloc] init];
         NSError *persitError = nil;

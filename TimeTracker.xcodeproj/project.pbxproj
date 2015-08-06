@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4732BC351B732C180022BF36 /* TimeLapse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4732BC341B732C180022BF36 /* TimeLapse.m */; };
 		477208F61B6FE553007279F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 477208F51B6FE553007279F8 /* main.m */; };
 		477208F91B6FE553007279F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 477208F81B6FE553007279F8 /* AppDelegate.m */; };
 		477208FC1B6FE553007279F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 477208FB1B6FE553007279F8 /* ViewController.m */; };
@@ -17,7 +18,6 @@
 		477209121B6FE553007279F8 /* TimeTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 477209111B6FE553007279F8 /* TimeTrackerTests.m */; };
 		4772091D1B6FE553007279F8 /* TimeTrackerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4772091C1B6FE553007279F8 /* TimeTrackerUITests.m */; };
 		4772092C1B6FE7E2007279F8 /* TimerStartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4772092B1B6FE7E2007279F8 /* TimerStartVC.m */; };
-		47F5B7521B729C4900DD76B7 /* TimeLapse.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F5B7511B729C4900DD76B7 /* TimeLapse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4732BC321B732C180022BF36 /* TimeLapse+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TimeLapse+CoreDataProperties.h"; path = "../TimeLapse+CoreDataProperties.h"; sourceTree = "<group>"; };
+		4732BC331B732C180022BF36 /* TimeLapse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeLapse.h; path = ../TimeLapse.h; sourceTree = "<group>"; };
+		4732BC341B732C180022BF36 /* TimeLapse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeLapse.m; path = ../TimeLapse.m; sourceTree = "<group>"; };
 		477208F11B6FE553007279F8 /* TimeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		477208F51B6FE553007279F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		477208F71B6FE553007279F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,9 +60,6 @@
 		4772091E1B6FE553007279F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4772092A1B6FE7E2007279F8 /* TimerStartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerStartVC.h; sourceTree = "<group>"; };
 		4772092B1B6FE7E2007279F8 /* TimerStartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerStartVC.m; sourceTree = "<group>"; };
-		47F5B74F1B729C4900DD76B7 /* TimeLapse+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimeLapse+CoreDataProperties.h"; sourceTree = "<group>"; };
-		47F5B7501B729C4900DD76B7 /* TimeLapse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLapse.h; sourceTree = "<group>"; };
-		47F5B7511B729C4900DD76B7 /* TimeLapse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLapse.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,9 +120,9 @@
 				477209051B6FE553007279F8 /* LaunchScreen.storyboard */,
 				477209081B6FE553007279F8 /* Info.plist */,
 				477209001B6FE553007279F8 /* TimeTracker.xcdatamodeld */,
-				47F5B74F1B729C4900DD76B7 /* TimeLapse+CoreDataProperties.h */,
-				47F5B7501B729C4900DD76B7 /* TimeLapse.h */,
-				47F5B7511B729C4900DD76B7 /* TimeLapse.m */,
+				4732BC321B732C180022BF36 /* TimeLapse+CoreDataProperties.h */,
+				4732BC331B732C180022BF36 /* TimeLapse.h */,
+				4732BC341B732C180022BF36 /* TimeLapse.m */,
 				477208F41B6FE553007279F8 /* Supporting Files */,
 			);
 			path = TimeTracker;
@@ -299,8 +299,8 @@
 				477208FC1B6FE553007279F8 /* ViewController.m in Sources */,
 				477208F91B6FE553007279F8 /* AppDelegate.m in Sources */,
 				477208F61B6FE553007279F8 /* main.m in Sources */,
-				47F5B7521B729C4900DD76B7 /* TimeLapse.m in Sources */,
 				477209021B6FE553007279F8 /* TimeTracker.xcdatamodeld in Sources */,
+				4732BC351B732C180022BF36 /* TimeLapse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -73,15 +73,41 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
     NSArray *allTimeLapse = [managedObjectContext executeFetchRequest:timeFetchRequest error:&fetchError];
+    
+    //set stop
+    if ([allTimeLapse count] > 0) {
+        TimeLapse *lastTimeLaps = [allTimeLapse lastObject];
+        if (lastTimeLaps.stopTimestamp == nil) {
+            lastTimeLaps.recordState = @"time is tracking ready!";
+            lastTimeLaps.stopTimestamp = [[NSDate alloc] init];
+        }else{
+            NSLog(@"Tracking already stoped");
+        }
+        
+        NSError *persitError = nil;
+        if ([managedObjectContext save:&persitError]) {
+            NSLog(@"persitentsSucces");
+        }else{
+            NSLog(@"persitentsError: %@", persitError);
+        }
+        
+    }else {
+        NSLog(@"No Objects are available for finish tracking.");
+    }
+    
     if ([allTimeLapse count] > 0){
         NSUInteger counter = 0;
         for (TimeLapse *timeLapseItem in allTimeLapse) {
-            NSLog(@"timelapse Obejct: %lu = %@, %@",counter, timeLapseItem.startTimestamp, timeLapseItem.recordState);
+            NSLog(@"timelapse Obj.No. %lu Start: %@",counter, timeLapseItem.startTimestamp);
+            NSLog(@"timelapse Obj.No. %lu StatusText: %@",counter, timeLapseItem.recordState);
+            NSLog(@"timelapse Obj.No. %lu Stop: %@",counter, timeLapseItem.stopTimestamp);
+            
             counter++;
         }
     }else{
         NSLog(@"There are no TimeLapse Items");
     }
+   
     
     
     //---end

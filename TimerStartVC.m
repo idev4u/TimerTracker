@@ -94,7 +94,7 @@
     }else {
         NSLog(@"No Objects are available for finish tracking.");
     }
-    
+   // show the results
     if ([allTimeLapse count] > 0){
         NSUInteger counter = 0;
         for (TimeLapse *timeLapseItem in allTimeLapse) {

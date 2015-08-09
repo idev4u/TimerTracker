@@ -18,6 +18,7 @@
 		477209121B6FE553007279F8 /* TimeTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 477209111B6FE553007279F8 /* TimeTrackerTests.m */; };
 		4772091D1B6FE553007279F8 /* TimeTrackerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4772091C1B6FE553007279F8 /* TimeTrackerUITests.m */; };
 		4772092C1B6FE7E2007279F8 /* TimerStartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4772092B1B6FE7E2007279F8 /* TimerStartVC.m */; };
+		47D6B41E1B77CBAB00BA4CAA /* TimeRecordOverviewTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D6B41D1B77CBAB00BA4CAA /* TimeRecordOverviewTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		4772091E1B6FE553007279F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4772092A1B6FE7E2007279F8 /* TimerStartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerStartVC.h; sourceTree = "<group>"; };
 		4772092B1B6FE7E2007279F8 /* TimerStartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerStartVC.m; sourceTree = "<group>"; };
+		47D6B41C1B77CBAB00BA4CAA /* TimeRecordOverviewTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeRecordOverviewTVC.h; sourceTree = "<group>"; };
+		47D6B41D1B77CBAB00BA4CAA /* TimeRecordOverviewTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeRecordOverviewTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,7 @@
 				477208F81B6FE553007279F8 /* AppDelegate.m */,
 				477208FA1B6FE553007279F8 /* ViewController.h */,
 				477208FB1B6FE553007279F8 /* ViewController.m */,
+				47D6B41F1B77CBB500BA4CAA /* RecordsOverview */,
 				4772092D1B6FE805007279F8 /* StartView */,
 				477208FD1B6FE553007279F8 /* Main.storyboard */,
 				477209031B6FE553007279F8 /* Assets.xcassets */,
@@ -161,6 +165,16 @@
 				4772092B1B6FE7E2007279F8 /* TimerStartVC.m */,
 			);
 			name = StartView;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		47D6B41F1B77CBB500BA4CAA /* RecordsOverview */ = {
+			isa = PBXGroup;
+			children = (
+				47D6B41C1B77CBAB00BA4CAA /* TimeRecordOverviewTVC.h */,
+				47D6B41D1B77CBAB00BA4CAA /* TimeRecordOverviewTVC.m */,
+			);
+			name = RecordsOverview;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -295,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47D6B41E1B77CBAB00BA4CAA /* TimeRecordOverviewTVC.m in Sources */,
 				4772092C1B6FE7E2007279F8 /* TimerStartVC.m in Sources */,
 				477208FC1B6FE553007279F8 /* ViewController.m in Sources */,
 				477208F91B6FE553007279F8 /* AppDelegate.m in Sources */,

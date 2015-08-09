@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerDisplay;
 @property (weak, nonatomic) IBOutlet UIButton *btnStart;
 @property (weak, nonatomic) IBOutlet UIButton *btnStop;
+@property (weak, nonatomic) IBOutlet UIButton *btnOverView;
 
 
 @end
@@ -27,8 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setupButton:_btnStart];
-    [self setupButton:_btnStop];
+    [self setupRoundButton:_btnStart];
+    [self setupRoundButton:_btnStop];
+    [self setupRectangleButton:_btnOverView];
     
 }
 
@@ -128,11 +130,28 @@
 */
 - (void)setupButton:(UIButton *) sender{
     
-    CGFloat btnHeight = sender.frame.size.height;
-    sender.layer.cornerRadius = btnHeight/2.0f;
+    //CGFloat btnHeight = sender.frame.size.height;
+    //sender.layer.cornerRadius = btnHeight/2.0f;
     //sender.layer.cornerRadius = 50/2.0f;
     sender.layer.borderColor=[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor;
     sender.layer.borderWidth=1.0f;
+}
+
+- (void)setupRectangleButton:(UIButton *) sender{
+    
+    //CGFloat btnHeight = sender.frame.size.height;
+    //sender.layer.cornerRadius = btnHeight/2.0f;
+    sender.layer.cornerRadius = 5.0f;
+    sender.layer.borderColor=[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor;
+    sender.layer.borderWidth=1.0f;
+}
+
+- (void)setupRoundButton:(UIButton *) sender{
+    
+    CGFloat btnHeight = sender.frame.size.height;
+    sender.layer.cornerRadius = btnHeight/2.0f;
+    //sender.layer.cornerRadius = 50/2.0f;
+    [self setupButton:sender];
 }
 
 - (NSString*)statusTextAtTimeLapseRunning{

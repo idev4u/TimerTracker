@@ -8,7 +8,7 @@
 
 #import "TimerStartVC.h"
 #import "TimeLapse.h"
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
 
 @interface TimerStartVC ()
 @property (weak, nonatomic) IBOutlet UILabel *timerDisplay;
@@ -17,13 +17,16 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnOverView;
 
 
+
 @end
 
 @implementation TimerStartVC{
     NSString *timerDisplayText;
-    
+//    NSManagedObjectContext *managedObjectContext;
 }
-
+//@synthesize managedObjectContext = _managedObjectContext;
+//@synthesize managedObjectModel = _managedObjectModel;
+//@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,17 +44,21 @@
 
 - (IBAction)start:(UIButton *)sender {
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
     
-    TimeLapse *timeLapse = [NSEntityDescription insertNewObjectForEntityForName:@"TimeLapse" inManagedObjectContext:managedObjectContext];
+//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//
+//   _managedObjectContext = appDelegate.managedObjectContext;
+    NSManagedObjectContext *managedContext = [self managedObjectContext];
+    
+    TimeLapse *timeLapse = [NSEntityDescription insertNewObjectForEntityForName:@"TimeLapse" inManagedObjectContext:managedContext];
     if(timeLapse != nil){
 //        timeLapse.recordDay = [[NSDate alloc] init]; //now
         timeLapse.recordState = @"time is tracking";
         timeLapse.startTimestamp = [[NSDate alloc] init];
         NSError *persitError = nil;
         
-        if ([managedObjectContext save:&persitError]) {
+        if ([managedContext save:&persitError]) {
             NSLog(@"persitentsSucces");
         }else{
             NSLog(@"persitentsError: %@", persitError);
@@ -72,8 +79,9 @@
     NSError *fetchError = nil;
     
     //global ?
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     NSArray *allTimeLapse = [managedObjectContext executeFetchRequest:timeFetchRequest error:&fetchError];
     
     //set stop
@@ -169,6 +177,19 @@
     [timerActiveMessage appendString:dateString];
     NSLog(@" %@",timerActiveMessage);
     return timerActiveMessage;
+}
+
+#pragma init CoreData Context
+- (NSManagedObjectContext *)managedObjectContext {
+    
+    NSManagedObjectContext *context = nil;
+    
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+   
+    return context;
 }
 
 @end

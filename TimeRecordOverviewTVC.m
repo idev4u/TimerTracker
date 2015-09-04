@@ -29,8 +29,8 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     /* should be get from the timerstartVC*/
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     /* Create the FetchController first action*/
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"TimeLapse"];
@@ -48,7 +48,8 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     } else {
         NSLog(@"timerRecordOverviewTVC: failed to fetched.");
     }
-
+    //thi sfixed the crash after open the view
+    self.timeRecordFetcher.delegate = nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +69,9 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     id<NSFetchedResultsSectionInfo> sectionInfo = self.timeRecordFetcher.sections[section];
+    if (sectionInfo.numberOfObjects <= 10) {
+        NSLog(@"index is smaller then 10");
+    }
     return sectionInfo.numberOfObjects;
 }
 
@@ -175,5 +179,18 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma init CoreData Context
+- (NSManagedObjectContext *)managedObjectContext {
+    
+    NSManagedObjectContext *context = nil;
+    
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    
+    return context;
+}
 
 @end

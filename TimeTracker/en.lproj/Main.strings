@@ -1,0 +1,45 @@
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "6qN-nc-xg7"; */
+"6qN-nc-xg7.normalTitle" = "Start";
+
+/* Class = "UILabel"; text = "StopTime"; ObjectID = "AEi-BK-7bH"; */
+"AEi-BK-7bH.text" = "StopTime";
+
+/* Class = "UILabel"; text = "Time Tracker"; ObjectID = "DaD-MZ-7Kp"; */
+"DaD-MZ-7Kp.text" = "Time Tracker";
+
+/* Class = "UILabel"; text = "No Time Tracking is started ..."; ObjectID = "DwG-St-a5p"; */
+"DwG-St-a5p.text" = "No Time Tracking is started ...";
+
+/* Class = "UILabel"; accessibilityIdentifier = "start"; ObjectID = "F49-gm-NCn"; */
+"F49-gm-NCn.accessibilityIdentifier" = "start";
+
+/* Class = "UILabel"; accessibilityLabel = "start"; ObjectID = "F49-gm-NCn"; */
+"F49-gm-NCn.accessibilityLabel" = "start";
+
+/* Class = "UILabel"; text = "Start"; ObjectID = "F49-gm-NCn"; */
+"F49-gm-NCn.text" = "Start";
+
+/* Class = "UIButton"; normalTitle = "Stop"; ObjectID = "MdD-PP-8fL"; */
+"MdD-PP-8fL.normalTitle" = "Stop";
+
+/* Class = "UIBarButtonItem"; title = "back"; ObjectID = "UgH-O3-baT"; */
+"UgH-O3-baT.title" = "back";
+
+/* Class = "UILabel"; text = "Cell Message"; ObjectID = "hGV-zc-HKU"; */
+"hGV-zc-HKU.text" = "Cell Message";
+
+/* Class = "UILabel"; text = "StartTime"; ObjectID = "mQk-DW-si0"; */
+"mQk-DW-si0.text" = "StartTime";
+
+/* Class = "UINavigationItem"; title = "Übersicht"; ObjectID = "mWk-oY-7T4"; */
+"mWk-oY-7T4.title" = "Übersicht";
+
+/* Class = "UILabel"; accessibilityIdentifier = "stop"; ObjectID = "thd-qC-fMU"; */
+"thd-qC-fMU.accessibilityIdentifier" = "stop";
+
+/* Class = "UILabel"; accessibilityLabel = "stop"; ObjectID = "thd-qC-fMU"; */
+"thd-qC-fMU.accessibilityLabel" = "stop";
+
+/* Class = "UILabel"; text = "Stop"; ObjectID = "thd-qC-fMU"; */
+"thd-qC-fMU.text" = "Stop";

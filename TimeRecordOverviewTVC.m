@@ -35,7 +35,7 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"TimeLapse"];
     //Sorter
-    NSSortDescriptor *startTimeStampSorter = [[NSSortDescriptor alloc] initWithKey:@"startTimestamp" ascending:YES];
+    NSSortDescriptor *startTimeStampSorter = [[NSSortDescriptor alloc] initWithKey:@"startTimestamp" ascending:NO];
     
     fetchRequest.sortDescriptors = @[startTimeStampSorter];
     
@@ -50,6 +50,12 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     }
     //thi sfixed the crash after open the view
     self.timeRecordFetcher.delegate = nil;
+<<<<<<< HEAD
+=======
+    
+    //setup seperator
+    //self.tableView.cellLayoutMarginsFollowReadableWidth = NO;
+>>>>>>> TableViewRecords
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,6 +80,12 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     }
     return sectionInfo.numberOfObjects;
 }
+//
+//#pragma add the section
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    return self.timeRecordFetcher.sections[section];
+//}
 
 #pragma mark - Controller Section
 - (void) controllerWillChangeContent:(nonnull NSFetchedResultsController *)controller{
@@ -119,18 +131,29 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     [formatter setTimeStyle:NSDateFormatterShortStyle];
     
     NSString *cellMessage = timeLapse.recordState;
+    UILabel *label1 = (UILabel *)[cell.contentView viewWithTag:1];
+    label1.text = cellMessage;
      //    cell.textLabel.text = [formatter stringFromDate:timeLapse.startTimestamp];
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
 //    _timerDisplay.numberOfLines = 0;
 //    _timerDisplay.lineBreakMode = NSLineBreakByWordWrapping;
-    cell.textLabel.text = [cellMessage stringByAppendingFormat:[formatter stringFromDate:timeLapse.startTimestamp]];
+//    cell.textLabel.text = [cellMessage stringByAppendingFormat:[formatter stringFromDate:timeLapse.startTimestamp]];
+    UILabel *label10 = (UILabel *)[cell.contentView viewWithTag:10];
+    label10.numberOfLines = 0;
+    label10.lineBreakMode = NSLineBreakByWordWrapping;
+    [label10 setText:[formatter stringFromDate:timeLapse.startTimestamp]];
+    
+    UILabel *label20 = (UILabel *)[cell.contentView viewWithTag:20];
+    label20.numberOfLines = 0;
+    label20.lineBreakMode = NSLineBreakByWordWrapping;
+    [label20 setText:[formatter stringFromDate:timeLapse.stopTimestamp]];
 
     NSLog(@"timelapse Start: %@", timeLapse.startTimestamp);
     NSLog(@"timelapse StatusText: %@", timeLapse.recordState);
     NSLog(@"timelapse Stop: %@", timeLapse.stopTimestamp);
 
-    cell.detailTextLabel.text = [formatter stringFromDate:timeLapse.stopTimestamp];
+//    cell.detailTextLabel.text = [formatter stringFromDate:timeLapse.stopTimestamp];
     
     return cell;
 }
@@ -193,4 +216,8 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     return context;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> TableViewRecords
 @end

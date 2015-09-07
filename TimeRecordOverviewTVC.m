@@ -119,18 +119,29 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     [formatter setTimeStyle:NSDateFormatterShortStyle];
     
     NSString *cellMessage = timeLapse.recordState;
+    UILabel *label1 = (UILabel *)[cell.contentView viewWithTag:1];
+    label1.text = cellMessage;
      //    cell.textLabel.text = [formatter stringFromDate:timeLapse.startTimestamp];
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
 //    _timerDisplay.numberOfLines = 0;
 //    _timerDisplay.lineBreakMode = NSLineBreakByWordWrapping;
-    cell.textLabel.text = [cellMessage stringByAppendingFormat:[formatter stringFromDate:timeLapse.startTimestamp]];
+//    cell.textLabel.text = [cellMessage stringByAppendingFormat:[formatter stringFromDate:timeLapse.startTimestamp]];
+    UILabel *label10 = (UILabel *)[cell.contentView viewWithTag:10];
+    label10.numberOfLines = 0;
+    label10.lineBreakMode = NSLineBreakByWordWrapping;
+    [label10 setText:[formatter stringFromDate:timeLapse.startTimestamp]];
+    
+    UILabel *label20 = (UILabel *)[cell.contentView viewWithTag:20];
+    label20.numberOfLines = 0;
+    label20.lineBreakMode = NSLineBreakByWordWrapping;
+    [label20 setText:[formatter stringFromDate:timeLapse.stopTimestamp]];
 
     NSLog(@"timelapse Start: %@", timeLapse.startTimestamp);
     NSLog(@"timelapse StatusText: %@", timeLapse.recordState);
     NSLog(@"timelapse Stop: %@", timeLapse.stopTimestamp);
 
-    cell.detailTextLabel.text = [formatter stringFromDate:timeLapse.stopTimestamp];
+//    cell.detailTextLabel.text = [formatter stringFromDate:timeLapse.stopTimestamp];
     
     return cell;
 }

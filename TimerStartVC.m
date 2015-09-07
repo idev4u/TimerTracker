@@ -88,7 +88,7 @@
     if ([allTimeLapse count] > 0) {
         TimeLapse *lastTimeLaps = [allTimeLapse lastObject];
         if (lastTimeLaps.stopTimestamp == nil) {
-            lastTimeLaps.recordState = @"time is tracking ready!";
+            lastTimeLaps.recordState = @"time tracking is ready!";
             lastTimeLaps.stopTimestamp = [[NSDate alloc] init];
         }else{
             NSLog(@"Tracking already stoped");

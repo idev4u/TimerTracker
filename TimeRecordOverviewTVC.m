@@ -35,7 +35,7 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"TimeLapse"];
     //Sorter
-    NSSortDescriptor *startTimeStampSorter = [[NSSortDescriptor alloc] initWithKey:@"startTimestamp" ascending:YES];
+    NSSortDescriptor *startTimeStampSorter = [[NSSortDescriptor alloc] initWithKey:@"startTimestamp" ascending:NO];
     
     fetchRequest.sortDescriptors = @[startTimeStampSorter];
     
@@ -50,6 +50,9 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     }
     //thi sfixed the crash after open the view
     self.timeRecordFetcher.delegate = nil;
+    
+    //setup seperator
+    //self.tableView.cellLayoutMarginsFollowReadableWidth = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,6 +77,12 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     }
     return sectionInfo.numberOfObjects;
 }
+//
+//#pragma add the section
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    return self.timeRecordFetcher.sections[section];
+//}
 
 #pragma mark - Controller Section
 - (void) controllerWillChangeContent:(nonnull NSFetchedResultsController *)controller{
@@ -203,5 +212,6 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     
     return context;
 }
+
 
 @end

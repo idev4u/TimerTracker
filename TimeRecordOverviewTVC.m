@@ -50,9 +50,7 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     }
     //thi sfixed the crash after open the view
     self.timeRecordFetcher.delegate = nil;
-    
-    //setup seperator
-    //self.tableView.cellLayoutMarginsFollowReadableWidth = NO;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -212,6 +210,5 @@ static NSString *timeRecordsCell = @"timeRecordsCell";
     
     return context;
 }
-
 
 @end
